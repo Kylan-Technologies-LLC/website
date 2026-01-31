@@ -1,0 +1,390 @@
+---
+layout: home
+title: Kylan Technologies LLC
+---
+<style>
+  :root {
+    --accent-color: #DCA1A1;
+    --bg-color: #FAF4F0;
+    --card-bg: #FFFFFF;
+    --text-color: #4B4B4B;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color);
+  }
+
+  a {
+    color: var(--accent-color);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* HERO */
+  .hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    background: linear-gradient(rgba(250,244,240,0.7), rgba(250,244,240,0.7)), url('/assets/image1.jpg');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 0 1rem;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  .hero-text h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #4B4B4B;
+  }
+
+  .hero-text p {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    color: #6B5B5B;
+  }
+
+  .btn {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(220,161,161,0.5);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .btn:hover {
+    background-color: #c78b8b;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    .hero-text h1 {
+      font-size: 2rem;
+    }
+    .hero-text p {
+      font-size: 1rem;
+    }
+  }
+
+  /* FEATURES */
+  .features {
+    text-align: center;
+    padding: 3rem 1rem;
+  }
+
+  .features h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--accent-color);
+  }
+
+  .features p {
+    font-size: 1.25rem;
+    color: #7B6B63;
+    margin-bottom: 2rem;
+  }
+
+  .feature-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+  }
+
+  /* CARD */
+  .card {
+    width: 260px;
+    height: 360px;
+    perspective: 1500px;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 70%;
+    border-radius: 12px;
+    backface-visibility: hidden;
+    transition: transform 0.6s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+    text-align: center;
+  }
+
+  .card-front {
+    background: var(--card-bg);
+  }
+
+  .card-front .icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 1rem;
+  }
+
+  .card-front h3 {
+    margin: 0.5rem 0;
+    font-size: 1.4rem;
+    color: var(--accent-color);
+  }
+
+  .card-front p {
+    color: #8B7D78;
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .card-back {
+    background: #F3E8E5;
+    transform: rotateY(180deg);
+    color: #4B4B4B;
+    font-size: 1rem;
+    padding-top: 1.5rem;
+    justify-content: center;
+  }
+
+  .card:hover .card-front {
+    transform: rotateY(-180deg);
+  }
+
+  .card:hover .card-back {
+    transform: rotateY(0deg);
+  }
+
+  /* CASE STUDY */
+  .case-study {
+    padding: 4rem 1rem;
+    background: #FFF7F2;
+    text-align: center;
+  }
+
+  .case-study h2 {
+    color: var(--accent-color);
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .case-study p {
+    font-size: 1.2rem;
+    color: #7B6B63;
+    margin-bottom: 3rem;
+  }
+
+  .case-study .case-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  .case-card h3 {
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .case-card p {
+    color: #4B4B4B;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  /* ABOUT US */
+.about-us {
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.about-us h2 {
+  font-size: 2.5rem;
+  color: var(--accent-color);
+  margin-bottom: 3rem;
+}
+
+.about-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.about-row.reverse {
+  flex-direction: row-reverse;
+}
+
+.about-text {
+  flex: 1 1 300px;
+  text-align: left;
+}
+
+.about-text h3 {
+  font-size: 1.8rem;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  color: #5A4B44;
+  line-height: 1.6;
+}
+
+.about-image {
+  flex: 1 1 300px;
+  text-align: center;
+}
+
+.about-image img {
+  width: 100%;      /* same width */
+  height: 500px;
+  border-radius: 15px; /* softens the corners */
+  object-fit: cover;   /* optional: ensures image scales nicely */
+}
+
+</style>
+
+<div class="container">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Technology Solutions That Work for Your Business</h1>
+      <p>Kylan Technologies LLC is a women‑owned small business delivering
+        practical tech solutions for modern organizations.</p>
+      <a href="/contact.html" class="btn">Contact Us</a>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <h2>The Kylan Experience</h2>
+    <p>Practical, collaborative technology solutions that empower your
+      business.</p>
+    <div class="feature-list">
+
+      <div class="feature-item">
+        <div class="card">
+          <div class="card-front">
+            <img src="/assets/consultant.svg" class="icon"
+              alt="Consulting Icon">
+            <i class="fi fi-ts-consultant"></i>
+            <h3>Technology Consulting</h3>
+            <p>Click to learn more</p>
+          </div>
+          <div class="card-back">
+            Expert guidance tailored to your business goals.
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <div class="card">
+          <div class="card-front">
+            <img src="/assets/workflow.svg" class="icon"
+              alt="Automation Icon">
+            <h3>Process Improvement</h3>
+            <p>Click to learn more</p>
+          </div>
+          <div class="card-back">
+            Streamline your workflows for greater efficiency.
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <div class="card">
+          <div class="card-front">
+            <img src="/assets/hr-person.svg" class="icon"
+              alt="Support Icon">
+            <h3>Ongoing Support</h3>
+            <p>Click to learn more</p>
+          </div>
+          <div class="card-back">
+            Reliable guidance to keep your systems running smoothly.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CASE STUDY -->
+  <section class="case-study">
+    <h2>Our Work in Action</h2>
+    <p>See how we helped our client achieve real results with practical
+      technology solutions.</p>
+    <div class="case-card">
+      <h3>Client: ACME Corp</h3>
+      <p><strong>Problem:</strong> ACME Corp struggled with inefficient
+        manual workflows.</p>
+      <p><strong>Solution:</strong> Streamlined processes, automation, and
+        modern tools tailored to their business.</p>
+      <p><strong>Result:</strong> 40% efficiency increase and fewer
+        errors, enabling confident scaling.</p>
+    </div>
+  </section>
+
+  <!-- ABOUT US -->
+  <section class="about-us">
+    <h2>About Kylan Technologies LLC</h2>
+
+    <div class="about-row">
+      <div class="about-text">
+        <h3>Who We Are</h3>
+        <p>Kylan Technologies LLC is a women-owned small business passionate
+          about providing practical, reliable, and scalable technology
+          solutions. Our focus is on collaboration, clarity, and real results
+          for our clients.</p>
+      </div>
+      <div class="about-image">
+        <img src="/assets/image2.jpg" alt="Team Illustration">
+      </div>
+    </div>
+
+    <div class="about-row reverse">
+      <div class="about-text">
+        <h3>Our Values</h3>
+        <p>We believe in empowering organizations with technology that
+          simplifies processes, drives efficiency, and inspires confidence.
+          Integrity, creativity, and empathy guide everything we do.</p>
+      </div>
+      <div class="about-image">
+        <img src="/assets/image3.jpg" alt="Values Illustration">
+      </div>
+    </div>
+
+    <div class="about-row">
+      <div class="about-text">
+        <h3>Why Trust Us</h3>
+        <p>With real-world experience and a commitment to personalized
+          solutions, Kylan Technologies has a proven track record of helping
+          clients achieve measurable results. Your success is our mission.</p>
+      </div>
+      <div class="about-image">
+        <img src="/assets/image4.jpg" alt="Trust Illustration">
+      </div>
+    </div>
+  </section>
+
+</div>
