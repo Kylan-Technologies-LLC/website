@@ -6,7 +6,6 @@ Install tools:
 brew install chruby ruby-install
 gem install jekyll
 bundle install
-git add Gemfile Gemfile.lock
 ```
 
 Run locally:
