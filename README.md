@@ -2,15 +2,17 @@ Page creation instructions: https://docs.github.com/en/pages/setting-up-a-github
 
 Install tools:
 
+```
 brew install chruby ruby-install
 gem install jekyll
 bundle install
 git add Gemfile Gemfile.lock
+```
 
 Run locally:
 
-bundle exec jekyll serve
+`bundle exec jekyll serve`
 
 When ready to pubish:
 
-bundle update github-pages
+`bundle update github-pages`
